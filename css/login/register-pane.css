@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+/*********************
+Register Pane Content
+*********************/
+/* set captcha image */
+.captcha.row img {
+	margin: 0;
+	padding: 0;
+	height: 80px;
+	width: 206px;
+}
+
+/* raise captcha code row a little
+   higher, so it's consistent w/ other rows */
+.code.row {
+	margin-top: -5px;
+}
+
+/* adjust code entry box to be center aligned
+   with label */
+#captcha-code {
+	margin:  0;
+	margin-top: 2px;
+}
+
+/* put label on the LHS consistent w/
+   other labels */
+.code.row label[for="captcha-code"] {
+	float: left;
+	width: 80px;
+	text-align: right;
+}
+
+/* overwrite anchor font-size from common.css
+   since browser makes it smaller */
+.panes #register-pane a:link {
+	font-size: 1em;
+}
+
+/* style label */
+.agree.row {
+	margin-top: -6px;
+	padding: 0;
+	font-size: 0.86em;
+}
+
+/* style input box */
+#agree {
+	border: none;
+	vertical-align: middle;
+	margin-right: 3px;
+}
+
+#reset-register {
+	margin-right: 0px;
+	padding-left: 24px;
+	padding-right: 24px;
+}
+/*
+#submit-register {
+	margin-bottom: 10px;
+}
+*/

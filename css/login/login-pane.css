@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/*********************
+Login Pane Content
+*********************/
+.captcha img {
+	border:0;
+ cursor: pointer;
+ margin:0 8px;
+
+}
+
+/* style label */
+.remember-me.row {
+	margin-top: -10px;
+	padding: 0;
+}
+
+/* style input box */
+#remember-me {
+	border: none;
+	vertical-align: middle;
+}
+
+label[for="remember-me"] {
+	font-size: 0.86em;
+}
+
+.forgot.row {
+	display: block;
+	margin-top: -10px;
+}
+
+/* adjust submit button */
+/*
+#submit-login {
+	margin-bottom: 10px;
+}
+*/

@@ -1,0 +1,370 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ProjectFlow Login</title>
+	
+	<!-- Reset CSS rules to start fresh. -->
+	<link href="css/reset.css" rel="stylesheet" type="text/css">
+	<link href="css/login/common.css" rel="stylesheet" type="text/css">
+	<link href="css/login/tabs.css" rel="stylesheet" type="text/css">
+	<link href="css/login/tooltips.css" rel="stylesheet" type="text/css">
+	<link href="css/login/overlays.css" rel="stylesheet" type="text/css">
+	<link href="css/login/login-pane.css" rel="stylesheet" type="text/css">
+	<link href="css/login/register-pane.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery-tools-tabs.min.js"></script>
+	<script type="text/javascript" src="js/jquery-tools-tooltip.min.js"></script>
+	<script type="text/javascript" src="js/jquery-tools-overlay.min.js"></script>
+	<!--<script src="http://cdn.jquerytools.org/1.2.6/full/jquery.tools.min.js"></script>-->
+
+</head>
+
+<body>
+
+<div id="container">
+	<header>
+	  <div id="trademark">
+			<h1>ProjectFlow</h1>
+			<p>by iLocality</p>
+		</div>
+	</header>
+
+	<div id="tabs-container">
+	
+		<!-- the tabs -->
+		<ul class="tabs">
+			<li><a href="#" tabindex="10">Log In</a></li>
+			<li><a href="#" tabindex="100">Create an Account</a></li>
+			<li><a href="#" tabindex="200">Forgot Password ?</a></li>
+		</ul>
+
+		<!-- tab "panes" -->
+		<div class="panes">
+
+			<!--LOGIN PANE SECTION-->
+			<div id="login-pane">
+				<h3>Login to ProjectFlow</h3>
+				<p>* Required fields</p>
+
+				<form id="login-form" action="/login" action="post">
+					<div class="username row"> 
+						<label for="login-username">Username:</label>
+						<input id="login-username" type="text" name="login-username" required pattern="^[A-Za-z0-9_]{6,20}$"
+						       title="must be 6-20 long and contain only 'A-Z' 'a-z' '0-9' '_' characters" tabindex="20"
+						       size="30" maxlength="30">
+					</div>
+					<div class="password row"> 
+						<label for="login-password">Password:</label>
+						<input id="login-password" type="password" name="password" required pattern="\S{8,}"
+						       title="must be equal or longer than 8 and may contain any characters but spaces" tabindex="30"
+						       size="30" maxlength="30">
+					</div>
+					<div class="remember-me row"> 
+						<input id="remember-me" type="checkbox" tabindex="40" name="remember-me" value="yes">
+						<label for="remember-me">Remember me</label>
+					</div>
+					<a class="forgot row" tabindex="-1" href="#forgot">Forgot password?</a>
+					<div class="button row">
+						<button id="submit-login" type="submit" name="login" value="submit" tabindex="50">Log In</button>
+					</div>
+				</form>
+			</div> <!--LOGIN PANE SECTION END-->
+
+			<!-- CREATE ACCOUNT PANE SECTION-->
+			<div id="register-pane">
+				<h3>Create an Account</h3>
+				<p>* Required fields</p>
+			 	<form id="register-form" action="/register" action="post">
+					<div class="name row">
+						<label for="firstname">First name:</label>
+						<input id="firstname" type="text" name="firstname" tabindex="110" size="30" maxlength="30">
+					</div>
+						<div class="name row">
+						<label for="lastname">Last name:</label>
+						<input id="lastname" type="text" name="lastname" tabindex="120" size="30" maxlength="30">
+					</div>
+					 <div class="username row">
+						 <label for="register-username">Username:</label>
+						 <input id="register-username" type="text" name="register-username" required pattern="^[A-Za-z0-9_]{6,20}$"
+						        title="must be 6-20 long and contain only 'A-Z' 'a-z' '0-9' '_' characters" tabindex="130"
+						        size="30" maxlength="30">
+					 </div>
+					<div class="email row">
+						<label for="email">Email:</label>
+						<input id="email" type="email" name="email" required
+						       pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="must be valid e-mail address"
+						       tabindex="140" size="30" maxlength="30">
+					</div>
+					<div class="password row">
+						<label for="register-password">Password:</label>
+						<input id="register-password" type="password" name="password" required pattern="\S{8,}"
+						       title="must be equal or longer than 8 and may contain any characters but spaces" tabindex="150"
+						       size="30" maxlength="30">
+						<!--title="Minimum 8 characters, one number, one uppercase and one lowercase letter"
+						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*"-->
+					</div>
+					<div class="captcha row">
+						<img src="images/captcha.png" alt="Captcha registration code" height="80px" width="206px" tabindex="-1">
+					</div>
+					<div class="code row">
+						<label for="captcha-code">Enter captcha code:</label>
+						<!-- no pattern since it can be anything -->
+						<input id="captcha-code" type="text" name="captcha" required
+						       title="must match code in the image above" tabindex="160" size="30" maxlength="30">
+					</div>
+					<div class="agree row">
+						<input id="agree" type="checkbox" required tabindex="170" name="agree" value="yes" >
+						<!--<label for="agree">I agree to <a rel="#service-terms" href="#">iLocality Terms of Service</a></label>-->
+					  <label for="agree">I agree to </label>
+						<a rel="#service-terms" href="#service-terms">iLocality Terms of Service</a>
+					</div>
+					<div class="button row">
+						<!--<input id="submit-register" class="button" type="submit" value="Create Account" name="submit-register"-->
+						<button id="reset-register" type="reset">Reset</button>
+						<button id="submit-register" type="submit" name="create-account" value="submit"
+						        tabindex="180">Create Account</button>
+					</div>
+			 </form>
+			</div> <!-- CREATE ACCOUNT PANE SECTION END -->
+
+			<!-- FORGOT PASSWORD PANE SECTION -->
+			<div id="forgot-pane">
+				<h3>Forgot Password ?</h3>
+				<p>* Required fields</p>
+				<form id="forgot-form" action="/forgot" action="post">
+					<div class="username row">
+						<label for="register-username">Username:</label>
+						<input id="forgot-username" type="text" name="register-username" required pattern="^[A-Za-z0-9_]{6,20}$"
+						       title="must be 6-20 long and contain only 'A-Z' 'a-z' '0-9' '_' characters" tabindex="130"
+						       size="30" maxlength="30">
+					</div>
+				  <div class="email row">
+					 <label for="email">Email:</label>
+					 <input id="forgot-email" type="email" name="email" required
+						      pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$" title="must be valid e-mail address"
+						      tabindex="140" size="30" maxlength="30">
+					</div>
+					<div class="captcha row">
+					 <img src="images/captcha.png" alt="Captcha registration code" height="80px" width="206px" tabindex="-1">
+				  </div>
+				  <div class="code row">
+					 <label for="captcha-code">Enter captcha code:</label>
+					 <!-- no pattern since it can be anything -->
+					 <input id="forgot-captcha-code" type="text" name="captcha" required
+						      title="must match code in the image above" tabindex="160" size="30" maxlength="30">
+				  </div>
+					<div class="button row">
+						<button id="reset-forgot" type="reset">Reset</button>
+						<button id="submit-forgot" type="submit" name="submit-forgot" value="submit"
+						        tabindex="180">Submit</button>
+					</div>
+				</form>
+			</div> <!-- FORGOT PASSWORD PANE SECTION END -->
+
+		</div>  <!-- PANES SECTION END -->
+	</div>    <!-- TAB-CONTAINER END -->
+
+	<footer></footer>
+
+</div>      <!-- CONTAINER SECTION END -->
+
+<!-- MISCELLANEOUS SECTION -->
+<div id="service-terms" class="simple-overlay">
+	<h1>ProjectFlow Terms of Service</h1><br />
+	<p>
+		Thank you for using ProjectFlow. These terms of service (the “Terms”) govern your access to
+		and use of ProjectFlow (“we” or “our”) websites and services (the “Services”), so please
+		carefully read them before using the Services.
+	</p><br />
+	<p>
+		By using the Services you agree to be bound by these Terms. If you are using the Services on
+		behalf of an organization, you are agreeing to these Terms for that organization and promising
+		that you have the authority to bind that organization to these terms. In that case, “you” and
+		“your” will refer to that organization.
+	</p><br />
+	<p>
+		You may use the Services only in compliance with these Terms. You may use the Services only
+		if you have the power to form a contract with iLocality and are not barred under any
+		applicable laws from doing so. The Services may continue to change over time as we refine
+		and add more features. We may stop, suspend, or modify the Services at any time without prior
+		notice to you. We may also remove any content from our Services at our discretion.
+	</p><br />
+	<h1>Your Stuff & Your Privacy</h1><br />
+	<p>
+		By using our Services you provide us with information, descriptions, financial information and
+		other data that you submit to ProjectFlow (together, “your stuff”). You retain full ownership
+		to your stuff. We don’t claim any ownership to any of it. These Terms do not grant us any
+		rights to your stuff or intellectual property except for the limited rights that are needed
+		to run the Services, as explained below.
+	</p><br />
+	<p>
+		We may need your permission to do things you ask us to do with your stuff, for example,
+		hosting your data, or sharing them at your discretion. This includes product features visible
+		to you. It also includes design choices we make to technically administer our Services, for
+		example, how we redundantly backup data to keep it safe. You give us the permissions we need
+		to do those things solely to provide the Services. This permission also extends to trusted
+		third parties we work with to provide the Services, for example Amazon, which provides our
+		storage space (again, only to provide the Services).
+	</p><br />
+	<p>
+		To be clear, aside from the rare exceptions we identify in our Privacy Policy, no matter how
+		the Services change, we won’t share your content with others, including law enforcement, for
+		any purpose unless you direct us to. How we collect and use your information generally is also
+		explained in our Privacy Policy.
+	</p><br />
+	<p>
+		You are solely responsible for your conduct, the content of your data, and your communications
+		with others while using the Services. For example, it’s your responsibility to ensure that you
+		have the rights or permission needed to comply with these Terms.
+	</p><br />
+	<p>
+		We may choose to review public content for compliance with our community guidelines, but you
+		acknowledge that iLocality has no obligation to monitor any information on the Services.
+		We are not responsible for the accuracy, completeness, appropriateness, or legality of files,
+		user posts, or any other information you may be able to access using the Services.
+	</p><br />
+	<h1>Account Security</h1><br />
+	<p>
+		You are responsible for safeguarding the password that you use to access the Services and
+		you agree not to disclose your password to any third party. You are responsible for any
+		activity using your account, whether or not you authorized that activity. You should
+		immediately notify iLocality of any unauthorized use of your account.
+	</p><br />
+	<h1>iLocality Property and Feedback</h1><br />
+	<p>
+		These terms do not grant you any right, title, or interest in the Services, Software, or
+		the content in the Services. While we appreciate it when users send us feedback, please be
+		aware that we may use any feedback, comments, or suggestions you send us or post in our
+		forums without any obligation to you. The Software and other technology we use to provide
+		the Services are protected by copyright, trademark, and other laws of both the United States
+		and foreign countries. These Terms do not grant you any rights to use the iLocality trademarks,
+		logos, domain names, or other brand features.
+	</p><br />
+	<h1>Acceptable Use Policy</h1><br />
+	<p>
+		You will not, and will not attempt to, misuse the Services, and will use the Services only
+		in a manner consistent with the iLocality acceptable use policies.
+	</p><br />
+	<h1>Other Content</h1><br />
+	<p>
+		The Services may contain links to third-party websites or resources. iLocality does not
+		endorse and is not responsible or liable for their availability, accuracy, the related content,
+		products, or services. You are solely responsible for your use of any such websites or resources.
+		Also, if we provide you with any software under an open source license, there may be provisions
+		in those licenses that expressly conflict with these Terms, in which case the open source
+		provisions will apply.
+	</p><br />
+	<h1>Termination</h1><br />
+	<p>
+		Though we’d much rather you stay, you can stop using our Services any time. We reserve the
+		right to suspend or end the Services at any time, with or without cause, and with or without
+		notice. For example, we may suspend or terminate your use if you are not complying with these
+		Terms, or use the Services in any way that would cause us legal liability or disrupt others’
+		use of the Services. If we suspend or terminate your use, we will try to let you know in
+		advance and help you retrieve data, though there may be some cases (for example, repeatedly
+		or flagrantly violating these Terms, a court order, or danger to other users) where we may
+		suspend immediately.
+	</p><br />
+	<h1>ProjectFlow is Available AS-IS</h1><br />
+	<p>
+		Though we want to provide a great service, there are certain things about the service we can’t
+		promise. For example, THE SERVICES AND SOFTWARE ARE PROVIDED “AS IS”, AT YOUR OWN RISK, WITHOUT
+		EXPRESS OR IMPLIED WARRANTY OR CONDITION OF ANY KIND. WE ALSO DISCLAIM ANY WARRANTIES OF
+		MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE OR NON-INFRINGEMENT. (We are not shouting-
+		it’s just that these disclaimers are really important, so we want to highlight them). iLocality
+		will have no responsibility for any harm to your computer system, loss or corruption of data, or
+		other harm that results from your access to or use of the Services or Software. Some states and
+		countries do not allow the types of disclaimers in this paragraph, so they may not apply to you.
+	</p><br />
+	<h1>Limitation of Liability</h1><br />
+	<p>
+		TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL iLOCALITY, ITS AFFILIATES, OFFICERS,
+		EMPLOYEES, AGENTS, SUPPLIERS OR LICENSORS BE LIABLE FOR (A) ANY INDIRECT, SPECIAL, INCIDENTAL,
+		PUNITIVE, EXEMPLARY OR CONSEQUENTIAL (INCLUDING LOSS OF USE, DATA, BUSINESS, OR PROFITS)
+		DAMAGES, REGARDLESS OF LEGAL THEORY, WHETHER OR NOT iLOCALITY HAS BEEN WARNED OF THE
+		POSSIBILITY OF SUCH DAMAGES, AND EVEN IF A REMEDY FAILS OF ITS ESSENTIAL PURPOSE; (B) AGGREGATE
+		LIABILITY FOR ALL CLAIMS RELATING TO THE SERVICES MORE THAN THE GREATER OF $20 OR THE AMOUNTS
+		PAID BY YOU TO iLOCALITY FOR THE PAST THREE MONTHS OF THE SERVICES IN QUESTION. Some states and
+		countries do not allow the types of limitations in this paragraph, so they may not apply to you.
+	</p><br />
+	<h1>Modifications</h1><br />
+	<p>
+		We may revise these Terms from time to time and the most current version will always be posted
+		on our website. If a revision, in our sole discretion, is material we may notify you
+		(for example via email to the email address associated with your account). By continuing to
+		access or use the Services after revisions become effective, you agree to be bound by the
+		revised Terms. If you do not agree to the new terms, please stop using the Services.
+	</p><br />
+	<h1>Miscellaneous Legal Terms</h1><br />
+	<p>
+		THESE TERMS AND THE USE OF THE SERVICES AND SOFTWARE WILL BE GOVERNED BY ONTARIO LAW EXCEPT
+		FOR ITS CONFLICTS OF LAWS PRINCIPLES. ALL CLAIMS ARISING OUT OF OR RELATING TO THESE TERMS OR
+		THE SERVICES OR SOFTWARE MUST BE LITIGATED EXCLUSIVELY IN THE FEDERAL OR STATE COURTS OF
+		OTTAWA, ONTARIO, AND BOTH PARTIES CONSENT TO VENUE AND PERSONAL JURISDICTION THERE. These
+		Terms constitute the entire and exclusive agreement between you and iLocality with respect to
+		the Services, and supersede and replace any other agreements, terms and conditions applicable
+		to the Services. These Terms create no third party beneficiary rights. iLocality’s failure to
+		enforce a provision is not a waiver of its right to do so later. If a provision is found
+		unenforceable the remaining provisions of the Agreement will remain in full effect and an
+		enforceable term will be substituted reflecting our intent as closely as possible. You may
+		not assign any of your rights in these Terms, and any such attempt is void, but iLocality may
+		assign its rights to any of its affiliates or subsidiaries, or to any successor in interest
+		of any business associated with the Services. iLocality and you are not legal partners or
+		agents; instead, our relationship is that of independent contractors.
+	</p>
+	<button type="button" class="button close"><a>Close</a></button>
+	<button type="button" class="cross close"><a></a></button>
+</div>
+<!-- MISCELLANEOUS SECTION -->
+
+
+<!-- JAVASCRIPT/jQUERY CODE SECTION -->
+<!-- This jQuery tool snippet activates tabs -->
+<script type="text/javascript">
+// perform JavaScript after the document is scriptable.
+$(function() {
+	// setup ul.tabs to work as tabs for each div directly under div.panes
+	$("ul.tabs").tabs("div.panes > div");
+});
+</script>
+
+<!-- This jQuery tool snippet activates tooltips -->
+<script type="text/javascript">
+	// select all desired input fields and attach tooltips to them
+	$("input[title]").tooltip({
+
+	// place tooltip on the right edge
+	position: "center right",
+
+	// a little tweaking of the position
+	offset: [0, 16],
+
+	// use the built-in fadeIn/fadeOut effect
+	effect: "fade",
+
+
+	// custom opacity setting
+	opacity: 1.0
+
+	});
+
+</script>
+
+<!--This jQuery tool snippet activates overlays -->
+<script type="text/javascript">
+   // activate simple overlay
+	$(document).ready(function() {
+		$("a[rel]").overlay();
+	});
+
+</script>
+
+
+<noscript>Please enable JavaScript to view all features of this page.</noscript>
+<!-- JAVASCRIPT/jQUERY CODE SECTION -->
+
+</body>
+
+</html>

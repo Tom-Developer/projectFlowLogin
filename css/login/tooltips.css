@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+/*********************
+Tooltips
+*********************/
+/* tooltip styling. by default the element to be styled is .tooltip  */
+.tooltip {
+	display:none;
+	height: 40px;
+	width: 160px;
+	padding: 10px;
+  color: #fff;
+	font-size: 0.90em;
+	line-height: 1.3em;
+	font-family: Verdana, sans-serif;
+	border-radius: 0.8em;
+  background-color: #006666;
+	box-shadow: 0px 0px 14px #222;
+	opacity: 1.0;
+	/* alternative background examples */
+	/*background-color: #ebf8ff; *//*transparent url("../../images/white-arrow.png");*/
+  /*background: -moz-linear-gradient(top, #dddddd, #fff);
+  background: -webkit-gradient(linear, center bottom, center top,	from(#ffffff), to(#dddddd));*/
+}

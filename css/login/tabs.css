@@ -1,0 +1,61 @@
+@charset "utf-8";
+
+/* all tabs */
+ul.tabs {
+	margin: 0px !important;
+	padding: 0;
+	height: 30px;
+	font-size: 1.1em;
+}
+
+/* single tab */
+ul.tabs li {
+	float: left;
+	padding: 0;
+	margin: 0px;
+	list-style-type: none;
+}
+
+/* margin between tabs is taken care in "ul.tabs a".
+   This is only to show how to access li elements
+   other than 1st one. */
+ul.tabs li+li {
+	/*margin-left:2px;  */
+}
+
+/* link inside the tab. uses a background image */
+ul.tabs a {
+	float: left;
+	font-size: 0.9em;
+	font-weight: bold;
+	display: block;
+	/*width:140px;*/
+	/*makes both tabs equal size*/
+	padding: 5px 30px;
+	text-decoration: none;
+	text-align: center;
+	height: 18px;
+	background-color: #f4faff;
+	color: #1f75cc;
+	margin-right: 4px;
+	position: relative;
+	top: 1px;
+	outline: medium none;
+	/*-moz-border-radius: 4px 4px 0 0;*/
+	border-radius: 4px 4px 0 0;
+	border: 1px solid #aeceef;
+}
+
+ul.tabs a:hover {
+	text-decoration: underline;
+}
+
+/* selected tab */
+ul.tabs a.current {
+	/* must be same as in #tabs-container .panes */
+	background-color: #fffffe;
+	color: #1f75cc;
+	cursor: pointer;
+	/* make color same as .panes. */
+	border-bottom: 1px solid #fff; /*make color same as .panes*/
+}

@@ -1,0 +1,268 @@
+@charset "utf-8";
+
+* {
+	text-rendering: optimizeLegibility;
+}
+
+/*********************
+Page Styles
+*********************/
+
+body {
+	font-family: "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+	background: #eee; /* #3cb371;*/
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 0.8em;
+}
+
+/* this selector removes the default blue border displayed in some browsers around
+	 an image when it is surrounded by a link */
+a img {
+	border: none;
+}
+
+/* get rid of those system borders being generated for A tags */
+a:active {
+  outline: none;
+}
+
+/* styling for your site's links must remain in this order 
+	- including the group of selectors that create the hover effect */
+a:link a:visited {
+	text-decoration: underline;
+	/* unless you style your links to look extremely unique,
+																		it's best to provide underlines for quick visual identification */
+}
+
+/* this group of selectors will give a keyboard navigator the same hover 
+   experience as the person using a mouse. */
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+#container {
+	margin: 0 auto;
+	padding: 0;
+	width: 500px;
+	background: #eee;
+
+}
+
+/*********************
+Header
+*********************/
+/* start header at the top of page for now*/
+header {
+	margin: 0px auto 0px;
+	padding: 0;
+}
+
+/* set trade-mark block position w/in header */
+header #trademark {
+	margin: 0 auto;
+	margin-top: 100px;
+	padding: 0;
+	text-align: center;
+}
+
+/* set trademark title width in %, so
+   it's more dynamic relative to surrounding
+   div. Center it w/in that div. */
+#trademark h1 {
+	width: 65%;
+	margin: auto;
+	padding: 0px;
+	font-size: 4.5em;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 2px 2px 4px #000;
+	font-style: italic;
+}
+
+/* set smaller text to the same width
+   as the title. Then center it and
+   text align to the right */
+#trademark h1 +p {
+	width: 65%;
+	margin: auto;
+	padding: 0;
+	font-weight: bold;
+	color: #1f75cc;
+	text-align: right;
+}
+
+/*********************
+Content
+*********************/
+#tabs-container {
+	margin: 0px;
+	margin-top: 60px;
+}
+
+#tabs-container .panes {
+	background-color: #fffffe;
+	border: 1px solid #aeceef;
+	padding: 0px 10px;
+	padding: 0;
+	/* set round corner eveywhere except for top-left
+	   corner of left tab */
+	border-radius: 0.8em;
+  border-top-left-radius: 0;
+	box-shadow: 8px 8px 2px 0px #888;
+}
+
+/* links w/in all panes */
+.panes a:link {
+	font-size: 0.86em;
+	color: #1f75cc;
+	text-decoration: none;
+}
+
+.panes a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* pane title */
+.panes h3 {
+	margin: 30px auto;
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+/* "* Required Fieds" styling */
+.panes h3+p {
+	color: red;
+	display: block;
+	margin-bottom: -12px;
+	padding-right: 10px;
+	text-align: right;
+	font-size: 0.84em;
+}
+
+#service-terms h1 {
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+/* add red star after each required field */
+.username label::after,
+.password label::after,
+.email label::after,
+.code label::after,
+.agree.row a::after {
+	font-size: 1em;
+	content: " *";
+	color: red;
+	z-index: 1;
+}
+
+/* simulate a table row w/ a <div> surrounding
+   input label and input box itelf. This way
+   I can place the whole row where I want.
+   The only hard value is width. */
+.row {
+	width: 300px;
+	margin: 16px auto;
+	padding: 0px;
+	text-align: right;
+}
+
+/* adjust field input boxes */
+.username input, .password input,
+.name input, .email input,
+.code.row input {
+	margin-left: 6px;
+	font-size: 1em; /*height: 16px;*/
+	border: 1px solid #aeceef;
+	vertical-align: middle;
+}
+
+/*********************
+Widgets
+*********************/
+button {
+	margin: 0;
+	padding: 0;
+	margin-bottom: 10px;
+	padding: 2px 4px 6px;
+	line-height: 1em;
+	font-size: 0.95em;
+	font-weight: bold;
+	vertical-align: middle;
+	background-color: #348DD3;
+	color: #fff;
+	border: none;
+}
+
+button:focus, button:hover {
+	background-color: #008888;
+  color: #fff;
+}
+/* makes default button appear differently */
+/*
+#submit-register:default {
+	background-color: #32cd32;
+}
+*/
+
+/*********************
+Navigation
+*********************/
+
+/*****************************
+Form Input Validation Styling
+******************************/
+/* set background color for input fields */
+input[type="text"]:enabled,
+input[type="password"]:enabled,
+input[type="checkbox"]:enabled,
+input[type="email"]:enabled {
+	background-color: #ffffe0;
+}
+
+/* set background color for disabled fields */
+input[type="text"]:disabled {
+	background-color: #ffa07a;
+}
+
+/* add a border to a checked box */
+/*input[type="checkbox"]:checked {*/
+input[type="checkbox"]:checked {
+	outline: 1px solid red;
+}
+
+/* set colors of invalid and valid
+   input fields */
+input:required:invalid {
+	box-shadow: none; /* removes Firefox default shadow box */
+}
+input:required:focus:invalid {
+	background-color: #ffeeeb;
+}
+/* some editors show :valid as invalid syntax, but it is valid CSS*/
+input:required:valid {
+	background-color: #e6ffe6;
+}
+
+/*********************
+Footer
+*********************/
+footer {
+	clear: both;
+	/* this forces the .container to understand
+										 where the columns end and contain them */
+}
+
+/* this class can be placed on a <br /> or empty block element 
+   as the final element following the last floated block (within the .container) 
+	 if the footer is removed or taken out of the .container */
+.clearfloat {
+	clear: both;
+	height: 0;
+	font-size: 1em;
+	line-height: 0px;
+}

@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+* {
+	text-rendering: optimizeLegibility;
+}
+
+/* set background color for input fields */
+input[type=text]:enabled,
+input[type=password]:enabled,
+input[type=checkbox]:enabled,
+input[type=email]:enabled {
+	background-color: #ffffe0;
+}
+input[type=text]:disabled {
+	background-color: #ffa07a;
+}
+input[type=checkbox]:checked {
+	border: 2px solid red;
+}
+
+/* set colors of invalid and valid
+   input fields */
+input:required:invalid {
+	box-shadow: none; /* removes Firefox default shadow box */
+}
+input:required:focus:invalid {
+	background-color: #ffeeeb;
+}
+input:required:valid {
+	background-color: #e6ffe6;
+}
+/*********************
+Page Styles
+*********************/
+
+body {
+	font-family: "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+	background: #eee;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 0.8em;
+}
+
+/* this selector removes the default blue border displayed in some browsers around
+	 an image when it is surrounded by a link */
+a img {
+	border: none;
+}
+
+/* styling for your site's links must remain in this order 
+	- including the group of selectors that create the hover effect */
+a:link a:visited {
+	text-decoration: underline;
+	/* unless you style your links to look extremely unique,
+																		it's best to provide underlines for quick visual identification */
+}
+
+/* this group of selectors will give a keyboard navigator the same hover 
+   experience as the person using a mouse. */
+a:hover, a:active, a:focus {
+	text-decoration: none;
+}
+
+#container {
+	width: 500px;
+	background: #eee;
+	margin: 0 auto;
+}
+
+/*********************
+Header
+*********************/
+header {
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 0px
+}
+
+header h1 {
+	margin-top: 100px;
+	padding: 10px;
+	text-align: center;
+	font-size: 4.5em;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 2px 2px 5px #000;
+	font-style: italic;
+}
+
+/* adjust trademark under page title */
+header p {
+	margin-top: -10px;
+	margin-right: 90px;
+	padding: 0;
+	text-align: right;
+	font-weight: bold;
+	color: #348DD3;
+}
+
+/*********************
+Content
+*********************/
+#tabs-container {
+	margin: 0px;
+     margin-top: 60px;
+}
+
+#tabs-container .panes {
+	background: #fff;
+	border: 1px solid #aeceef;
+	padding: 0px 10px;
+}
+
+/* links w/in all panes */
+.panes a:link {
+	font-size: 0.86em;
+	color: #1f75cc;
+	text-decoration: none;
+}
+
+.panes a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/* pane title */
+.panes h3 {
+	margin: 30px auto;
+	text-align: center;
+	font-size: 1.25em;
+	font-weight: bold;
+}
+
+/* require fields */
+.panes h3+p {
+	color: red;
+	display: block;
+	margin-bottom: -14px;
+	padding-right: 10px;
+	text-align: right;
+	font-size: 0.8em;
+}
+
+/* make red the required field - star */
+/*#login-form label span,
+#register-form label span {
+	color: red;
+	font-size: 1em;
+}*/
+
+label[for="username"]::after,
+label[for="login-password"]::after,
+label[for="firstname"]::after,
+label[for="lastname"]::after,
+label[for="email"]::after,
+label[for="register-password"]::after,
+label[for="captcha-code"]::after,
+label[for="agree"]::after {
+	font-size: 1em;
+	content: " *";
+	color: red;
+}
+
+/* simulate a table row w/ a <div> surrounding
+   input label and input box itelf. This way
+   I can place the whole row where I want.
+   The only hard value is width. */
+.row {
+	width: 300px;
+	margin: 16px auto;
+	padding: 0px;
+	text-align: right;
+}
+
+/* adjust field input boxes */
+#login-username, #login-password,
+#firstname, #lastname, #email,
+#register-password, #captcha-code {
+	margin-left: 6px;
+	font-size: 1em; /*height: 16px;*/
+	border: 1px solid #aeceef;
+	vertical-align: middle;
+}
+
+/*********************
+Widgets
+*********************/
+.button {
+	margin: 0;
+	padding: 2px 4px 4px;
+	line-height: 1.2em;
+	font-size: 0.95em;
+	font-weight: bold;
+	vertical-align: middle;
+	background-color: #348DD3;
+	color: #fff;
+	border: none;
+}
+
+/*********************
+Navigation
+*********************/
+
+/*********************
+Footer
+*********************/
+#footer {
+	clear: both;
+	/* this forces the .container to understand
+										 where the columns end and contain them */
+}
+
+/* this class can be placed on a <br /> or empty block element 
+   as the final element following the last floated block (within the .container) 
+	 if the footer is removed or taken out of the .container */
+.clearfloat {
+	clear: both;
+	height: 0;
+	font-size: 1em;
+	line-height: 0px;
+}

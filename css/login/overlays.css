@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+/* style the overlay element, i.e. container */
+.simple-overlay {
+	display: none; /* must be initially hidden */
+	z-index: 10; /* place overlay on top of other elements */
+	margin: 80px;
+	padding: 15px;
+	background-color: #006666;
+	color: #fff;
+	text-align: justify;
+	line-height: 1.3em;
+	font-size: 1.1em;
+	font-family: Geneva, sans-serif;
+	width: 800px;
+	height: 600px;
+	opacity: 1.0;
+	cursor: auto;
+	border: 1px solid #aeceef;
+	border-radius: 0.8em;
+	box-shadow: 6px 6px 2px #888;
+	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+/* close button positioned on upper right corner */
+/* class="close" is generated automatically by jQuery tools code */
+.simple-overlay .cross.close {
+	background: url("../../images/close.png");
+	position: absolute;
+	right: -2px;
+	top: -2px;
+	cursor: pointer;
+	height: 36px;
+	width: 36px;
+}
+
+/* style overlay button. Inherit some properties from
+   general button style */
+.simple-overlay .button.close {
+  float: right;
+	position: relative;
+	left: 0px;
+  bottom: 1px;
+	padding-top: 4px;
+	margin-bottom: 0px;
+	margin-top: 8px;
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: #ffffff;
+  cursor: pointer;
+}
+
+.overlay-content {
+}
+
